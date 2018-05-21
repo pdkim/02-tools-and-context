@@ -80,7 +80,7 @@ describe('list module', () => {
 
 
   //map
-  it('by create a new array affecting all values', () => {
+  xit('by create a new array affecting all values', () => {
     let list = new List;
     list.push(1);
     list.push(2);
@@ -88,11 +88,30 @@ describe('list module', () => {
     let actual = list.toArray().map(item => item * 5);
     let expected = [5, 10, 15];
     expect(actual).toEqual(expected);
+    expect(list.toArray()).toEqual([1, 2, 3]);
   });
 
   //filter
   xit('by making a new array that returns only even numbers', () => {
-    expect(list.filter()).toBeNull();
+    let list = new List;
+    list.push(1);
+    list.push(2);
+    list.push(3);
+    list.push(4);
+    let actual = list.toArray().filter(item => item % 2 === 0);
+    let expected = [2, 4];
+    expect(actual).toEqual(expected);
+    expect(list.toArray()).toEqual([1, 2, 3, 4]);
+  });
+
+  xit('by pushing nothing and returning an empty array', () => {
+    let list = new List;
+    list.push(1);
+    list.push(3);
+    list.push(5);
+    let actual = list.toArray().filter(item => item % 2 ===0);
+    let expected = [];
+    expect(actual).toEqual(expected);
   });
 
   //reduce
