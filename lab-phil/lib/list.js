@@ -36,11 +36,31 @@ class List {
   }
 
   map(func) {
+    var arr = [];
     for(let i = 0; i < this.length; i++) {
-      var arr = [];
       arr[i] = func(this[i]);
     }
     return arr;
+  }
+
+  filter(func) {
+    var arr = [];
+    for(let i = 0; i < this.length; i++) {
+      arr[i] = func(this[i]);
+    }
+    return arr;
+  }
+
+  reduce(func, result) {
+    var i = 0;
+    if(this.length < 2) {
+      i = 1;
+      result = this[0];
+    }
+    for(i; i < this.length; i++) {
+      result = func(result, this[i]);
+    }
+    return result;
   }
 
   

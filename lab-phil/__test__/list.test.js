@@ -4,7 +4,7 @@ let List = require('../lib/list.js');
 
 describe('list module', () => {
   //push
-  xit('should add to empty list', () => {
+  it('should add to empty list', () => {
     let list = new List();
     let expected = 'something';
     list.push('something');
@@ -13,7 +13,7 @@ describe('list module', () => {
     expect(list.length).toBe(1);
   });
 
-  xit('should add to single item list', () => {
+  it('should add to single item list', () => {
     let list = new List();
     let expected = 'else';
     list.push('something');
@@ -24,7 +24,7 @@ describe('list module', () => {
   });
 
   //pop
-  xit('should remove last item in list', () => {
+  it('should remove last item in list', () => {
     let list = new List();
     list.push(1);
     list.push(2);
@@ -35,7 +35,7 @@ describe('list module', () => {
     expect(list.length).toBe(1);
   });
 
-  xit('should return the last item removed', () => {
+  it('should return the last item removed', () => {
     let list = new List();
     list.push(1);
     list.push(2);
@@ -45,7 +45,7 @@ describe('list module', () => {
     expect(actual).toBe(expected);
   });
 
-  xit('should return undefined if length is 0.', () => {
+  it('should return undefined if length is 0.', () => {
     let list = new List();
     list.push(1);
     let expected = undefined;
@@ -56,7 +56,7 @@ describe('list module', () => {
   
 
   //forEach
-  xit('should iterate through each item in the array', () => {
+  it('should iterate through each item in the array', () => {
     let list = new List;
     list.push(1);
     list.push(2);
@@ -68,7 +68,7 @@ describe('list module', () => {
     expect(actual).toEqual(expected);
   });
 
-  xit('should return undefined', () => {
+  it('should return undefined', () => {
     let list = new List;
     list.push(1);
     list.push(2);
@@ -80,7 +80,7 @@ describe('list module', () => {
 
 
   //map
-  xit('by create a new array affecting all values', () => {
+  it('by creating a new array that applies a change to the original values in the previous array', () => {
     let list = new List;
     list.push(1);
     list.push(2);
@@ -92,7 +92,7 @@ describe('list module', () => {
   });
 
   //filter
-  xit('by making a new array that returns only even numbers', () => {
+  it('by making a new array that returns only even numbers', () => {
     let list = new List;
     list.push(1);
     list.push(2);
@@ -104,7 +104,7 @@ describe('list module', () => {
     expect(list.toArray()).toEqual([1, 2, 3, 4]);
   });
 
-  xit('by pushing nothing and returning an empty array', () => {
+  it('by pushing nothing and returning an empty array', () => {
     let list = new List;
     list.push(1);
     list.push(3);
@@ -115,8 +115,22 @@ describe('list module', () => {
   });
 
   //reduce
-  xit('by reducing all the elements in the array into a single result', () => {
-    expect(list.reduce()).toBeNull();
+  it('by reducing all the elements in the array into a single result', () => {
+    let list = new List;
+    list.push(1);
+    list.push(2);
+    list.push(3);
+    let actual = list.toArray().reduce((acc, cur) => acc + cur);
+    let expected = 6;
+    expect(actual).toBe(expected);
+    expect(list.toArray()).toEqual([1, 2, 3]);
+  });
+
+  it('return the value if only one item is in the array', () => {
+    let list = new List;
+    list.push(1);
+    let actual = list.toArray().reduce((acc, cur) => acc + cur);
+    expect(actual).toBe(1);
   });
 });
 
