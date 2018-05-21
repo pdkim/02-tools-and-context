@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/pdkim/02-tools-and-context.svg?branch=master)](https://travis-ci.com/pdkim/02-tools-and-context)
+
 ## Tools and Context
 In the module, it is exporting a contructor that has 6 total methods
 
